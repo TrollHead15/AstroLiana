@@ -1,0 +1,256 @@
+{
+  "project": {
+    "name": "AstroLiana",
+    "description": "Astrology consultation and services platform",
+    "version": "1.0.0",
+    "type": "web-application",
+    "framework": "Next.js 14",
+    "router": "App Router"
+  },
+  "techStack": {
+    "framework": "Next.js 14",
+    "router": "App Router",
+    "language": "TypeScript",
+    "styling": {
+      "primary": "Tailwind CSS",
+      "animations": "Framer Motion"
+    },
+    "forms": {
+      "library": "React Hook Form",
+      "validation": "Zod"
+    },
+    "integrations": {
+      "email": "Resend",
+      "messaging": "Telegram Bot API",
+      "analytics": ["PostHog", "Plausible"],
+      "maps": "Mapbox Geocoding"
+    },
+    "runtime": "Node.js"
+  },
+  "designSystem": {
+    "colors": {
+      "primary": "#2D2B55",
+      "background": "#F9F6EE",
+      "accent": "#D4AF37",
+      "description": "Mystical purple for primary elements, warm beige for backgrounds, golden accent for highlights"
+    },
+    "typography": {
+      "headings": {
+        "fontFamily": "Cormorant Garamond",
+        "weights": [400, 600, 700],
+        "style": "Serif font for elegant headings"
+      },
+      "body": {
+        "fontFamily": "Inter",
+        "weights": [400, 500, 600, 700],
+        "style": "Clean sans-serif for readable body text"
+      }
+    },
+    "animations": {
+      "library": "Framer Motion",
+      "principles": [
+        "Smooth transitions between states",
+        "Subtle entrance animations",
+        "Respect user's motion preferences (prefers-reduced-motion)",
+        "Performance-first: use transform and opacity"
+      ],
+      "timing": {
+        "fast": "150ms",
+        "normal": "300ms",
+        "slow": "500ms"
+      },
+      "easing": {
+        "default": "ease-in-out",
+        "entrance": "ease-out",
+        "exit": "ease-in"
+      }
+    },
+    "spacing": {
+      "system": "Tailwind CSS default spacing scale",
+      "base": "4px (0.25rem)"
+    },
+    "breakpoints": {
+      "sm": "640px",
+      "md": "768px",
+      "lg": "1024px",
+      "xl": "1280px",
+      "2xl": "1536px"
+    }
+  },
+  "architecture": {
+    "pattern": "Feature-based modular architecture",
+    "structure": {
+      "app": "Next.js App Router pages and layouts",
+      "components": "Reusable React components",
+      "features": "Feature-specific modules",
+      "lib": "Utility functions and shared logic",
+      "hooks": "Custom React hooks",
+      "types": "TypeScript type definitions",
+      "config": "Configuration files",
+      "public": "Static assets"
+    },
+    "componentStructure": {
+      "pattern": "Atomic Design inspired",
+      "hierarchy": [
+        "atoms: Basic building blocks (buttons, inputs)",
+        "molecules: Simple component combinations",
+        "organisms: Complex components (forms, navigation)",
+        "templates: Page layouts",
+        "pages: Full pages with data"
+      ]
+    },
+    "stateManagement": {
+      "local": "React useState/useReducer",
+      "server": "Next.js Server Components and Server Actions",
+      "forms": "React Hook Form"
+    },
+    "dataFetching": {
+      "approach": "Server Components first",
+      "clientSide": "Only when necessary (user interactions)",
+      "caching": "Next.js built-in caching strategies"
+    }
+  },
+  "codingStandards": {
+    "language": {
+      "typescript": {
+        "strict": true,
+        "noImplicitAny": true,
+        "useTypeInference": true,
+        "preferInterfaces": "for object shapes",
+        "preferTypes": "for unions and complex types"
+      }
+    },
+    "react": {
+      "components": {
+        "style": "Functional components only",
+        "defaultExport": "Only for pages, named exports for components",
+        "propsTyping": "Always define prop types",
+        "children": "Use ReactNode type for children prop"
+      },
+      "hooks": {
+        "rules": "Follow Rules of Hooks strictly",
+        "customHooks": "Prefix with 'use'",
+        "dependencies": "Always declare all dependencies in useEffect/useMemo/useCallback"
+      },
+      "serverComponents": {
+        "default": "Use Server Components by default",
+        "clientComponents": "Mark with 'use client' only when needed",
+        "criteria": "Use client components for interactivity, browser APIs, React hooks"
+      }
+    },
+    "styling": {
+      "approach": "Tailwind utility-first",
+      "customClasses": "Use @apply sparingly, prefer composition",
+      "responsiveDesign": "Mobile-first approach",
+      "darkMode": "Not implemented yet"
+    },
+    "naming": {
+      "components": "PascalCase (e.g., UserProfile)",
+      "files": "Match component name (UserProfile.tsx)",
+      "hooks": "camelCase with 'use' prefix (useUserData)",
+      "utilities": "camelCase (formatDate)",
+      "constants": "UPPER_SNAKE_CASE (MAX_RETRY_COUNT)",
+      "types": "PascalCase with descriptive names (UserProfile, ApiResponse)"
+    },
+    "fileOrganization": {
+      "componentFiles": "One component per file",
+      "coLocation": "Keep related files close (component, styles, tests)",
+      "indexFiles": "Use for clean exports, avoid barrel exports for performance"
+    },
+    "imports": {
+      "order": [
+        "React and Next.js imports",
+        "Third-party libraries",
+        "Internal absolute imports (@/...)",
+        "Relative imports (./...)",
+        "Type imports"
+      ],
+      "aliases": {
+        "@/": "Project root",
+        "@/components": "Components directory",
+        "@/lib": "Utilities and helpers",
+        "@/types": "Type definitions"
+      }
+    },
+    "errorHandling": {
+      "async": "Use try-catch blocks",
+      "components": "Use Error Boundaries for component errors",
+      "userFacing": "Always provide user-friendly error messages",
+      "logging": "Log errors for debugging, never expose sensitive data"
+    },
+    "performance": {
+      "images": "Use Next.js Image component",
+      "fonts": "Use next/font for optimal loading",
+      "bundleSize": "Monitor and optimize bundle size",
+      "codeSpitting": "Leverage Next.js automatic code splitting",
+      "lazyLoading": "Use dynamic imports for heavy components"
+    }
+  },
+  "accessibility": {
+    "standard": "WCAG 2.2 Level AA",
+    "requirements": {
+      "semantic": "Use semantic HTML elements",
+      "aria": "Add ARIA labels where necessary",
+      "keyboard": "Full keyboard navigation support",
+      "focus": "Visible focus indicators",
+      "contrast": "Minimum 4.5:1 for normal text, 3:1 for large text",
+      "screenReader": "Test with screen readers",
+      "motion": "Respect prefers-reduced-motion"
+    },
+    "tools": [
+      "axe DevTools",
+      "Lighthouse accessibility audit",
+      "Manual keyboard testing"
+    ]
+  },
+  "performance": {
+    "targets": {
+      "lighthouse": {
+        "performance": "≥ 95",
+        "accessibility": "≥ 95",
+        "bestPractices": "≥ 95",
+        "seo": "≥ 95"
+      },
+      "coreWebVitals": {
+        "LCP": "< 2.5s",
+        "FID": "< 100ms",
+        "CLS": "< 0.1"
+      }
+    },
+    "strategies": [
+      "Server-side rendering for initial load",
+      "Static generation where possible",
+      "Image optimization with Next.js Image",
+      "Font optimization with next/font",
+      "Code splitting and lazy loading",
+      "Efficient caching strategies"
+    ]
+  },
+  "testing": {
+    "philosophy": "Test behavior, not implementation",
+    "types": {
+      "unit": "Jest + React Testing Library",
+      "e2e": "Playwright",
+      "a11y": "axe-core integration"
+    }
+  },
+  "git": {
+    "branching": "Feature branches from main",
+    "commits": "Conventional Commits format",
+    "examples": [
+      "feat: add user profile component",
+      "fix: resolve navigation menu overlap",
+      "docs: update API documentation",
+      "style: format code with prettier",
+      "refactor: simplify form validation logic",
+      "test: add tests for contact form",
+      "chore: update dependencies"
+    ]
+  },
+  "documentation": {
+    "components": "Document complex components with JSDoc",
+    "apis": "Document all API routes and endpoints",
+    "readme": "Keep README up to date with setup instructions",
+    "changelog": "Maintain CHANGELOG.md"
+  }
+}
