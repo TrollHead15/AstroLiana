@@ -34,6 +34,11 @@ class MCPServer {
       designSystem: this.config.designSystem,
       codingStandards: this.config.codingStandards,
       architecture: this.config.architecture,
+      accessibility: this.config.accessibility,
+      performance: this.config.performance,
+      testing: this.config.testing,
+      git: this.config.git,
+      documentation: this.config.documentation,
       timestamp: new Date().toISOString()
     };
   }

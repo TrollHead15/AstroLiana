@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "mcp:dev": "node mcp-server.js"
+    "mcp:dev": "node mcp-server.js",
+    "mcp:test": "node test-mcp.js",
+    "mcp:demo": "node demo-mcp.js"
   },
   "dependencies": {
     "next": "^14.0.0",
@@ -29,7 +31,6 @@
     "@mapbox/mapbox-gl-geocoder": "^5.0.0"
   },
   "devDependencies": {
-    "@context7/mcp-server": "^1.0.0",
     "eslint": "^8.0.0",
     "eslint-config-next": "^14.0.0",
     "autoprefixer": "^10.4.0",
