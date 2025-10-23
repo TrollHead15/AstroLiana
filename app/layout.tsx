@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
+import { SmoothScrollProvider } from "@/components/providers";
 
 const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin", "cyrillic"],
@@ -17,8 +18,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Next.js 14 App",
-  description: "Modern Next.js 14 application with TypeScript and Tailwind CSS",
+  title: "Лиана Астро — астрология как инструмент самопонимания",
+  description:
+    "Бесплатные материалы для тех, кто хочет понимать себя глубже — без мистики",
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
   ),
@@ -34,7 +36,9 @@ export default function RootLayout({
       lang="ru"
       className={`${cormorantGaramond.variable} ${inter.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <SmoothScrollProvider>{children}</SmoothScrollProvider>
+      </body>
     </html>
   );
 }

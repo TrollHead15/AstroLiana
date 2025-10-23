@@ -48,6 +48,10 @@
     text-wrap: balance;
   }
 
+  .animate-optimized {
+    will-change: transform, opacity;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
