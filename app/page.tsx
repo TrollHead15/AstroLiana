@@ -3,6 +3,7 @@ import {
   AboutSection,
   LeadMagnetsSection,
 } from "@/components/sections";
+import { LeadMagnetModals } from "@/components/modals/LeadMagnetModals";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <LeadMagnetsSection />
+      <LeadMagnetModals />
     </main>
   );
 }

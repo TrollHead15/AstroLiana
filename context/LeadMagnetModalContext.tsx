@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useCallback, useContext, useMemo, useState, ReactNode } from 'react';
 
 interface LeadMagnetModalContextType {
   activeModalId: number | null;
@@ -29,16 +29,21 @@ export const LeadMagnetModalProvider: React.FC<LeadMagnetModalProviderProps> = (
 }) => {
   const [activeModalId, setActiveModalId] = useState<number | null>(null);
 
-  const openModal = (id: number) => {
+  const openModal = useCallback((id: number) => {
     setActiveModalId(id);
-  };
+  }, []);
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setActiveModalId(null);
-  };
+  }, []);
+
+  const value = useMemo(
+    () => ({ activeModalId, openModal, closeModal }),
+    [activeModalId, openModal, closeModal],
+  );
 
   return (
-    <LeadMagnetModalContext.Provider value={{ activeModalId, openModal, closeModal }}>
+    <LeadMagnetModalContext.Provider value={value}>
       {children}
     </LeadMagnetModalContext.Provider>
   );

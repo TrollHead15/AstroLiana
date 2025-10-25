@@ -85,8 +85,22 @@ const LeadMagnetsSection = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="py-20 px-4 bg-gray-50">
-      <div className="max-w-7xl mx-auto">
+    <section
+      ref={sectionRef}
+      id="lead-magnets"
+      className="bg-gray-50 py-20 px-4"
+    >
+      <div className="mx-auto max-w-3xl text-center">
+        <h2 className="font-heading text-3xl font-semibold text-primary sm:text-4xl">
+          Выберите свой подарок
+        </h2>
+        <p className="mt-4 font-body text-base text-foreground/70">
+          Подберите материал, который поможет разобраться в себе глубже: натальная карта,
+          практический чек-лист или подробный гайд.
+        </p>
+      </div>
+
+      <div className="mx-auto mt-12 max-w-7xl">
         <div
           ref={cardsRef}
           className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"

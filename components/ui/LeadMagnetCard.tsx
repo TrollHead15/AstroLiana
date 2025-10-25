@@ -1,42 +1,45 @@
 'use client';
 
-import React from 'react';
+import { ReactNode } from 'react';
+import Button from './Button';
 
 interface LeadMagnetCardProps {
   id: number;
-  icon: React.ReactNode;
+  icon: ReactNode;
   title: string;
   description: string;
   buttonText: string;
   onButtonClick: (id: number) => void;
 }
 
-export const LeadMagnetCard: React.FC<LeadMagnetCardProps> = ({
+export const LeadMagnetCard = ({
   id,
   icon,
   title,
   description,
   buttonText,
   onButtonClick,
-}) => {
+}: LeadMagnetCardProps) => {
   return (
-    <div className="lead-magnet-card bg-white rounded-xl p-8 shadow-md hover:shadow-xl transition-all duration-300 ease-out hover:-translate-y-2 flex flex-col items-center text-center">
-      <div className="mb-6">{icon}</div>
-      
-      <h3 className="font-heading font-semibold text-[1.75rem] text-primary mb-4">
+    <div className="lead-magnet-card flex h-full flex-col items-center rounded-2xl bg-white p-8 text-center shadow-lg transition duration-300 ease-out hover:-translate-y-2 hover:shadow-2xl">
+      <div className="mb-6 text-foreground/90">{icon}</div>
+
+      <h3 className="mb-4 font-heading text-[1.75rem] font-semibold text-primary">
         {title}
       </h3>
-      
-      <p className="font-body text-base leading-relaxed text-primary mb-6 flex-grow">
+
+      <p className="mb-8 flex-grow font-body text-base leading-relaxed text-foreground/80">
         {description}
       </p>
-      
-      <button
+
+      <Button
+        type="button"
+        variant="accent"
+        className="w-full max-w-xs"
         onClick={() => onButtonClick(id)}
-        className="bg-accent text-white font-body font-medium text-base px-8 py-3 rounded-full hover:scale-105 hover:brightness-90 transition-all duration-300 ease-out"
       >
         {buttonText}
-      </button>
+      </Button>
     </div>
   );
 };

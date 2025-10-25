@@ -53,4 +53,18 @@ npm run dev
 
 ## Переменные окружения
 
-Создайте `.env.local` на основе `.env.local.example`. Дополнительные переменные будут добавлены по мере реализации интеграций.
+Создайте `.env.local` на основе `.env.local.example` и заполните ключи интеграций:
+
+- `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` — отправка уведомлений в Telegram
+- `RESEND_API_KEY`, `RESEND_FROM_EMAIL` — рассылка писем с PDF вложениями
+- `NEXT_PUBLIC_MAPBOX_API_KEY` — подсказки городов через Mapbox
+- `POSTHOG_API_KEY` / `NEXT_PUBLIC_POSTHOG_KEY` — аналитика PostHog (сервер + клиент)
+- `PLAUSIBLE_DOMAIN` — подключение трекинга Plausible
+
+## Интеграции
+
+- ✅ API-маршруты для всех лид-магнитов с валидацией и rate limit
+- ✅ Уведомления в Telegram о новых лидах
+- ✅ Отправка чек-листа и гайда через Resend с PDF вложениями
+- ✅ Автодополнение города в форме натальной карты через Mapbox
+- ✅ Аналитика PostHog и Plausible (page view, modal, формы, письма, Telegram)

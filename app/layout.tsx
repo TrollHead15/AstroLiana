@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
-import { SmoothScrollProvider } from "@/components/providers";
+import Script from "next/script";
+import { SmoothScrollProvider, AnalyticsProvider, ToasterProvider } from "@/components/providers";
 import { LeadMagnetModalProvider } from "@/context/LeadMagnetModalContext";
 
 const cormorantGaramond = Cormorant_Garamond({
@@ -17,6 +18,8 @@ const inter = Inter({
   variable: "--font-inter",
   display: "swap",
 });
+
+const PLAUSIBLE_DOMAIN = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
 
 export const metadata: Metadata = {
   title: "Лиана Астро — астрология как инструмент самопонимания",
@@ -38,9 +41,20 @@ export default function RootLayout({
       className={`${cormorantGaramond.variable} ${inter.variable}`}
     >
       <body>
-        <SmoothScrollProvider>
-          <LeadMagnetModalProvider>{children}</LeadMagnetModalProvider>
-        </SmoothScrollProvider>
+        {PLAUSIBLE_DOMAIN ? (
+          <Script
+            strategy="afterInteractive"
+            data-domain={PLAUSIBLE_DOMAIN}
+            src="https://plausible.io/js/script.tagged-events.js"
+          />
+        ) : null}
+
+        <AnalyticsProvider>
+          <SmoothScrollProvider>
+            <LeadMagnetModalProvider>{children}</LeadMagnetModalProvider>
+          </SmoothScrollProvider>
+        </AnalyticsProvider>
+        <ToasterProvider />
       </body>
     </html>
   );
