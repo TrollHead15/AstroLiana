@@ -1,0 +1,12 @@
+{
+  "name": "single-branch-workflow",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "lint": "echo 'Linting is not configured yet. Replace this script with your lint command.'",
+    "typecheck": "echo 'Type checking is not configured yet. Replace this script with your typecheck command.'",
+    "test": "echo 'Tests are not configured yet. Replace this script with your test runner.'",
+    "prepush": "npm run lint && npm run typecheck && npm run test",
+    "release": "node scripts/release-checklist.js"
+  }
+}
