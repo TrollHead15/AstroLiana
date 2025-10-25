@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import { SmoothScrollProvider } from "@/components/providers";
+import { LeadMagnetModalProvider } from "@/context/LeadMagnetModalContext";
 
 const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin", "cyrillic"],
@@ -37,7 +38,9 @@ export default function RootLayout({
       className={`${cormorantGaramond.variable} ${inter.variable}`}
     >
       <body>
-        <SmoothScrollProvider>{children}</SmoothScrollProvider>
+        <SmoothScrollProvider>
+          <LeadMagnetModalProvider>{children}</LeadMagnetModalProvider>
+        </SmoothScrollProvider>
       </body>
     </html>
   );
