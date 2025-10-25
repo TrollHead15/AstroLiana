@@ -1,0 +1,10 @@
+{
+  "git": {
+    "productionBranch": "main"
+  },
+  "github": {
+    "enabled": true,
+    "silent": false,
+    "autoJobCancellation": true
+  }
+}

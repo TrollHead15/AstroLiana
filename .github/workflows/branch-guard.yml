@@ -1,0 +1,47 @@
+name: Branch Guard
+
+on:
+  push:
+    branches:
+      - "**"
+  pull_request:
+    branches:
+      - "**"
+  workflow_dispatch:
+
+jobs:
+  ensure-main-branch:
+    name: Validate default branch usage
+    if: ${{ github.actor != 'dependabot[bot]' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Guard against non-main pushes
+        env:
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          GITHUB_REF: ${{ github.ref }}
+          GITHUB_HEAD_REF: ${{ github.head_ref }}
+          GITHUB_BASE_REF: ${{ github.base_ref }}
+        run: |
+          ALLOWED_BRANCH="refs/heads/main"
+
+          if [ "${GITHUB_EVENT_NAME}" = "pull_request" ]; then
+            if [ "${GITHUB_BASE_REF}" != "main" ]; then
+              echo "::error::Pull requests must target the 'main' branch. Current base: ${GITHUB_BASE_REF}"
+              exit 1
+            fi
+
+            if [ "${GITHUB_HEAD_REF}" != "main" ]; then
+              echo "::error::Single-branch policy violation: PRs must originate from 'main'. Rebase your changes onto 'main' and push with --ff-only. Current head: ${GITHUB_HEAD_REF}"
+              exit 1
+            fi
+
+            echo "Pull request head and base are both 'main'."
+            exit 0
+          fi
+
+          if [ "${GITHUB_REF}" != "${ALLOWED_BRANCH}" ]; then
+            echo "::error::This repository uses a single-branch workflow. Pushes are only allowed on 'main'. Detected ref: ${GITHUB_REF}"
+            exit 1
+          fi
+
+          echo "Push to 'main' detected – branch guard passed."
