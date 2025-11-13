@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 import Footer from "@/components/Footer";
+import LenisScroll from "@/components/LenisScroll";
 import { inter, cormorant } from "@/lib/fonts";
 
 import "./globals.css";
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ru" className={`${inter.variable} ${cormorant.variable}`}>
       <body>
+        <LenisScroll />
         <div className="site-wrapper">
           <main>{children}</main>
           <Footer />
