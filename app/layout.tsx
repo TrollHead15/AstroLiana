@@ -1,17 +1,10 @@
 import type { Metadata } from "next";
-import { Inter, Cormorant_Garamond } from "next/font/google";
 import type { ReactNode } from "react";
 
 import Footer from "@/components/Footer";
+import { inter, cormorant } from "@/lib/fonts";
 
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin", "cyrillic"], variable: "--font-inter" });
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  variable: "--font-cormorant"
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://lianaastro.ru"),
