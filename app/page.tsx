@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import HeroSection from "@/components/sections/HeroSection";
+import AboutSection from "@/components/sections/AboutSection";
 
 export const metadata: Metadata = {
   title: "Главная",
@@ -16,6 +17,7 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <AboutSection />
       <section
         id="lead-magnets"
         className="flex w-full justify-center bg-cream px-5 py-12 md:px-8 md:py-24"
