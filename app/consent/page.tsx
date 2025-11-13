@@ -19,7 +19,9 @@ export const metadata: Metadata = {
 export default function ConsentPage() {
   return (
     <div className="page-shell">
-      <Breadcrumbs items={[{ label: "Главная", href: "/" }, { label: "Согласие на обработку ПД" }]} />
+      <Breadcrumbs
+        items={[{ label: "Главная", href: "/" }, { label: "Согласие на обработку ПД" }]}
+      />
       <Link className="back-link" href="/">
         ← Назад на главную
       </Link>
@@ -29,15 +31,22 @@ export default function ConsentPage() {
         </header>
         <section>
           <p>
-            Я даю согласие на обработку моих персональных данных (ФИО, email, дата, время и место рождения) в целях
-            получения бесплатных материалов и информации о консультациях от Лианы Астро.
+            Я даю согласие на обработку моих персональных данных (ФИО, email, дата, время и место
+            рождения) в целях получения бесплатных материалов и информации о консультациях от Лианы
+            Астро.
           </p>
         </section>
         <section>
-          <p>Обработка персональных данных осуществляется в соответствии с Политикой конфиденциальности.</p>
+          <p>
+            Обработка персональных данных осуществляется в соответствии с Политикой
+            конфиденциальности.
+          </p>
         </section>
         <section>
-          <p>Я могу отозвать согласие в любой момент, написав на <a href="mailto:hello@lianaastro.ru">hello@lianaastro.ru</a>.</p>
+          <p>
+            Я могу отозвать согласие в любой момент, написав на{" "}
+            <a href="mailto:hello@lianaastro.ru">hello@lianaastro.ru</a>.
+          </p>
         </section>
       </div>
     </div>
